@@ -17,9 +17,9 @@ export function ContactListItem({ name, number, onButtonDelete, buttonId }) {
   );
 }
 
-ContactListItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  onButtonDelete: PropTypes.func.isRequired,
-};
+// ContactListItem.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   number: PropTypes.string.isRequired,
+//   onButtonDelete: PropTypes.func.isRequired,
+// };
 

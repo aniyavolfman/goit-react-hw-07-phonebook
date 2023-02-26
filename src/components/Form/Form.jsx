@@ -57,7 +57,7 @@ export function Form() {
       ...contact,
     };
 
-    dispatch(setContacts([...contacts, finalContact]));
+    // dispatch(setContacts([...contacts, finalContact]));
   }
 
   return (
