@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
+import * as contactsOperations from 'redux/contacts/contactsOperations';
 import css from './Form.module.css'
 import {getContactsList, setContacts } from 'redux/contacts/contactsSlice';
 
@@ -53,11 +53,11 @@ export function Form() {
       return;
     }
     const finalContact = {
-      id: nanoid(),
       ...contact,
     };
 
-    // dispatch(setContacts([...contacts, finalContact]));
+    dispatch(contactsOperations.addContact(finalContact));
+    console.log(finalContact)
   }
 
   return (

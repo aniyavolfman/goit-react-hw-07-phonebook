@@ -8,6 +8,15 @@ const contactsAPI = axios.create({
 });
 
 export async function requestContacts() {
-  const response = await contactsAPI.get('contacts');
+  const {data} = await contactsAPI.get('contacts');
+  return data;
+}
+
+export async function addContacts({name, number}) {
+  const newContact = {
+    name,
+    number,
+  }
+  const response = await contactsAPI.post('contacts', newContact);
   return response;
 }
