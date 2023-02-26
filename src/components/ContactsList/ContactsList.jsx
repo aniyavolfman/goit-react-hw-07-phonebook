@@ -11,12 +11,13 @@ export function ContactsList() {
 
   const dispatch = useDispatch();
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().trim().includes(filter.toLowerCase())
+  const filteredContacts = contacts
+    .filter(contact =>
+      contact.name.toLowerCase().trim().includes(filter.toLowerCase())
   );
 
   const handleDelete = event => {
-     dispatch(deleteContacts(event.target.id));
+    dispatch(deleteContacts(event.target.id));
    };
 
   return (
