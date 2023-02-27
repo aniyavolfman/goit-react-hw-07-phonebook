@@ -5,10 +5,10 @@ export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkApi) => {
     try {
-      const response = await contactsAPI.requestContacts(); //payload success
+      const response = await contactsAPI.requestContacts(); 
       return response;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -17,10 +17,10 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunkApi) => {
     try {
-      const response = await contactsAPI.addContacts(contact); //payload success
+      const response = await contactsAPI.addContacts(contact); 
       return response;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -28,12 +28,11 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (id, thunkApi) => {
-    console.log(id)
     try {
-      const response = await contactsAPI.deleteContacts(id); //payload success
-      return response;
+      const response = await contactsAPI.deleteContacts(id); 
+      return response.id;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

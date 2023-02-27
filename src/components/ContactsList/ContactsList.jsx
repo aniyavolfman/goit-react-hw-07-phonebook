@@ -9,7 +9,7 @@ import css from './ContactsList.module.css'
 export function ContactsList() {
 
   const contacts = useSelector(getContactsList);
-  const filter = useSelector(getContactsFilter);
+  const filter = useSelector(getContactsFilter);  //getFiltercontacts
 
   const dispatch = useDispatch();
 
