@@ -2,21 +2,29 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://63fb75f94e024687bf78ee0e.mockapi.io/';
 
-const contactsAPI = axios.create({
-  params: {
-  },
-});
-
 export async function requestContacts() {
-  const {data} = await contactsAPI.get('contacts');
-  return data;
+  try {
+    const { data } = await axios.get('contacts');
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
-export async function addContacts({name, number}) {
-  const newContact = {
-    name,
-    number,
+export async function addContacts(contact) {
+  try {
+    const { data } = await axios.post('contacts', contact);
+    return data;
+  } catch (error) {
+    console.log(error.message);
   }
-  const response = await contactsAPI.post('contacts', newContact);
-  return response;
+}
+
+export async function deleteContacts(id) {
+  try {
+    const { data } = await axios.delete(`contacts/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
